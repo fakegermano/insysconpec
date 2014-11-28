@@ -1,40 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html class="no-js" lang="en">
 <head>
-    <meta charset="UTF-8">
+    <title>{% block pretitle %}{% endblock %}{% block title %}Hello World! {% endblock %}{% block posttitle %}{% endblock %}</title>
     <link rel="stylesheet" href="{{ STATIC_URL }}stylesheets/ie.css">
     <link rel="stylesheet" href="{{ STATIC_URL }}stylesheets/screen.css" media="screen, projection" type="text/css">
     <link rel="stylesheet" href="{{ STATIC_URL }}stylesheets/print.css" media="print" />
-    <title>
-        {% block pretitle %}
-        {% endblock %}
-        {% block title %}
-            Hello World!
-        {% endblock %}
-        {% block posttitle %}
-        {% endblock %}
-    </title>
+    <meta charset="utf-8">
     {% block head %}
     {% endblock %}
-
-    {% block extrahead %}
+    {% block extra_head %}
     {% endblock %}
 </head>
 <body class="{% block active_nav_tab %}{% endblock %}" {% block body_load_trigger %}{% endblock %}>
-{% include "include/top-nav.html" %}
-
-<div id="page">
-    {% include "include/messages.html" %}
-
-    {%block featureBox %}
-    {% endblock %}
-
-    {%block extra_body %}
-    {% endblock%}
-
-</div>
-
-{% include "include/footer.html" %}
-
+    {% include "include/top-nav.html" %}
+    <div class="container-fluid">
+        <div class="content">
+            <div class="wrapper">
+                <div class="proper-content">
+                    <div class="row">
+                        <div class="span12">
+                            {% include "include/messages.html" %}
+                            {%block featureBox %}
+                            {% endblock %}
+                            {%block extra_body %}
+                            {% endblock %}
+                        </div>
+                    </div>
+                </div><!-- /.proper-content -->
+                <div class="push"></div>
+            </div><!-- /.wrapper -->
+            {% include "include/footer.html" %}
+        </div><!-- /.content -->
+    </div><!-- /.container-fluid -->
 </body>
 </html>
