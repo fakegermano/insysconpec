@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block pretitle %}
+        {% endblock %}
+        {% block title %}
+            Hello World!
+        {% endblock %}
+        {% block posttitle %}
+        {% endblock %}
+    </title>
+    {% block head %}
+    {% endblock %}
+
+    {% block extrahead %}
+    {% endblock %}
+</head>
+<body class="{% block active_nav_tab %}{% endblock %}" {% block body_load_trigger %}{% endblock %}>
+{% include "include/top-nav.html" %}
+
+<div id="page">
+    {% include "include/messages.html" %}
+
+    {%block featureBox %}
+    {% endblock %}
+
+    {%block extra_body %}
+    {% endblock%}
+
+</div>
+
+{% include "include/footer.html" %}
+
+</body>
+</html>
